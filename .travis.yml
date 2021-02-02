@@ -31,7 +31,7 @@ jobs:
     # ```
     # nobody@isolated:/qunit$ npm run build
     #
-    # you@here:/qunit$ docker run --rm --interactive --tty --mount type=bind,source="$mountsrc",target="$mountdest",readonly --entrypoint /bin/sh ubuntu:focal -c "cd $mountdest;bash"
+    # you@here:/qunit$ MNT=$(basename "$PWD"); docker run --rm --interactive --tty --mount type=bind,source="$PWD",target="/$MNT",readonly --entrypoint /bin/sh ubuntu:focal -c "cd /$MNT;bash"
     #
     # root@focal:/qunit# apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y libmozjs-68-dev
     # root@focal:/qunit# js68 test/mozjs.js
